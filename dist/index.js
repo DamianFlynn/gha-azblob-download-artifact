@@ -29230,6 +29230,7 @@ const core = tslib_1.__importStar(__webpack_require__(470));
 const fs_1 = __webpack_require__(747);
 const path_1 = __webpack_require__(622);
 async function download(connectionString, name, path, container) {
+    core.info(`connection string: "${connectionString}" `);
     const serviceClient = await storage_blob_1.BlobServiceClient.fromConnectionString(connectionString);
     // Create container if necessary
     core.info(`Get a container "${container}" ...`);

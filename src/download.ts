@@ -2,6 +2,7 @@ import { BlobServiceClient } from '@azure/storage-blob';
 import * as core from '@actions/core';
 import { promises as fs } from 'fs';
 import { relative, dirname, join } from 'path';
+import { connect } from 'http2';
 
 export async function download(
   connectionString: string,
@@ -9,6 +10,7 @@ export async function download(
   path: string,
   container: string,
 ) {
+  core.info(`connection string: "${connectionString}" `);
   const serviceClient = await BlobServiceClient.fromConnectionString(
     connectionString,
   );
